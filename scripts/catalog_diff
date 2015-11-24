@@ -24,7 +24,7 @@ if [ "x$USE_PUPPETDB" = "xyes" ]; then
   PUPPETDB_FLAG="--use_puppetdb"
   cat <<EOF > /etc/puppetlabs/puppet/puppetdb.conf
 [main]
-port = 8081
+port = 8080
 server = puppetdb
 soft_write_failure = false
 EOF
