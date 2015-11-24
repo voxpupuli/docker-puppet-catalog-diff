@@ -7,14 +7,17 @@ ENV2=${ENV2:-$ENV1}
 
 if [ -z $ENV1 ]; then
   echo "E: Must provide at least one environment"
+  exit 1
 fi
 
 if [ -z $SITE ]; then
   echo "E: Must provide site"
+  exit 1
 fi
 
 if [ -z $MASTER1 ]; then
   echo "E: Must provide at least one master"
+  exit 1
 fi
 
 DATADIR="${HOME}/catalog_diff_data"
