@@ -20,14 +20,24 @@ mkdir -p $DATADIR
 
 REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
 
+if [ -z $PUPPETDB ]; then
+  USE_PUPPETDB="--use_puppetdb"
+  PUPPETDB_PORT=${PUPPETDB_PORT:8081}
+  cat <<EOF > /etc/puppetlabs/puppet/puppetdb.conf
+[main]
+port = $PUPPETDB_PORT
+server = $PUPPETDB
+soft_write_failure = false
+EOF
+fi
+
 puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --show_resource_diff \
 --content_diff \
 --changed_depth 1000 \
 --configtimeout 3000 \
 --output_report $REPORT \
---debug \
---use_puppetdb \
+--debug $USE_PUPPETDB \
 --threads $THREADS
 
 if [ "x${COMPRESS}" = "xyes" ]; then
