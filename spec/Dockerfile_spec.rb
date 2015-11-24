@@ -17,4 +17,9 @@ describe "Dockerfile" do
   describe file('/etc/puppetlabs/code/environments/production/modules/catalog_diff/lib/puppet/face/catalog/diff.rb') do
     it { is_expected.to be_file }
   end
+
+  describe file('/usr/local/bin/catalog_diff') do
+    it { is_expected.to be_file }
+    it { is_expected.to be_executable }
+  end
 end
