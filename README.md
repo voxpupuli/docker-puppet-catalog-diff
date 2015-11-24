@@ -26,3 +26,14 @@ $ docker run -ti -e "MASTER1=puppet.dev" \
                  camptocamp/puppet-catalog-diff catalog_diff
 ```
 
+## Certificates
+
+The `puppet catalog` command uses the standard Puppet certificates in the container. No certificate is included in the container, so Puppet will create one when you run it.
+
+For this reason, it is recommended to mount a certificate signed by your CA in the container when starting it.
+
+
+## Reports
+
+When using the `catalog_diff` wrapper, generated JSON reports are stored in `/root/catalog_diff_data`. It is recommended to mount a volume there to retrieve the reports.
+
