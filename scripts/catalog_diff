@@ -22,7 +22,7 @@ REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
 
 if [ "x$USE_PUPPETDB" = "xyes" ]; then
   PUPPETDB_FLAG="--use_puppetdb"
-  PUPPETDB_PORT=${PUPPETDB_PORT:8081}
+  PUPPETDB_PORT=${PUPPETDB_PORT:-8081}
   cat <<EOF > /etc/puppetlabs/puppet/puppetdb.conf
 [main]
 port = $PUPPETDB_PORT
