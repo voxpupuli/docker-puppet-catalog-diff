@@ -32,6 +32,8 @@ The `puppet catalog` command uses the standard Puppet certificates in the contai
 
 For this reason, it is recommended to mount a certificate signed by your CA in the container when starting it.
 
+Be sure to set the container hostname to the same as the certificate.
+
 
 ## Reports
 
