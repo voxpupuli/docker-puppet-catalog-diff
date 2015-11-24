@@ -11,4 +11,4 @@ RUN apt-get update \
 
 VOLUME /reports
 
-CMD cron && tail -f /var/log/cron.log
+CMD ["cron", "-f"]
