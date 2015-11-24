@@ -5,5 +5,10 @@ MAINTAINER raphael.pinson@camptocamp.com
 ADD scripts/catalog_diff /usr/local/bin/catalog_diff
 
 RUN puppet module install zack/catalog_diff
+RUN apt-get update \
+  && apt-get install -y cron \
+  && rm -rf /var/lib/apt/lists/*
 
 VOLUME /reports
+
+CMD cron && tail -f /var/log/cron.log
