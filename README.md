@@ -9,6 +9,15 @@ Puppet Catalog Diff Docker image
 # Usage
 
 ```shell
+docker run -ti camptocamp/puppet-catalog-diff puppet catalog diff --help
+```
+
+
+## `catalog_diff` wrapper
+
+The image comes with a `catalog_diff` wrapper taking environment variables.
+
+```shell
 $ docker run -ti -e "MASTER1=puppet.dev" \
                  -e "MASTER2=puppet.prod" \ # optional, defaults to $MASTER1
                  -e "ENV1=dev" \
@@ -16,3 +25,4 @@ $ docker run -ti -e "MASTER1=puppet.dev" \
                  -e "PUPPETDB=localhost" \
                  camptocamp/puppet-catalog-diff catalog_diff
 ```
+
