@@ -35,5 +35,5 @@ For this reason, it is recommended to mount a certificate signed by your CA in t
 
 ## Reports
 
-When using the `catalog_diff` wrapper, generated JSON reports are stored in `/root/catalog_diff_data`. It is recommended to mount a volume there to retrieve the reports.
+When using the `catalog_diff` wrapper, generated JSON reports are stored in `/reports`. It is recommended to mount a volume there to retrieve the reports.
 
