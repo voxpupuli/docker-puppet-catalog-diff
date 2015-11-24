@@ -10,11 +10,6 @@ if [ -z $ENV1 ]; then
   exit 1
 fi
 
-if [ -z $SITE ]; then
-  echo "E: Must provide site"
-  exit 1
-fi
-
 if [ -z $MASTER1 ]; then
   echo "E: Must provide at least one master"
   exit 1
@@ -23,7 +18,7 @@ fi
 DATADIR="${HOME}/catalog_diff_data"
 mkdir -p $DATADIR
 
-REPORT="${DATADIR}/${SITE}_${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
+REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
 
 puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --show_resource_diff \
