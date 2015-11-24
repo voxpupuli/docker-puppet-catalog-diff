@@ -1,0 +1,38 @@
+#!/bin/bash
+
+THREADS=${THREADS:-1}
+COMPRESS=${COMPRESS:-yes}
+MASTER2=${MASTER2:-$MASTER1}
+ENV2=${ENV2:-$ENV1}
+
+if [ -z $ENV1 ]; then
+  echo "E: Must provide at least one environment"
+fi
+
+if [ -z $SITE ]; then
+  echo "E: Must provide site"
+fi
+
+if [ -z $MASTER1 ]; then
+  echo "E: Must provide at least one master"
+fi
+
+DATADIR="${HOME}/catalog_diff_data"
+mkdir -p $DATADIR
+
+REPORT="${DATADIR}/${SITE}_${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
+
+puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
+--show_resource_diff \
+--content_diff \
+--changed_depth 1000 \
+--configtimeout 3000 \
+--output_report $REPORT \
+--debug \
+--use_puppetdb \
+--threads $THREADS
+
+if [ "x${COMPRESS}" = "xyes" ]; then
+  gzip -c $REPORT > "${REPORT}.gz"
+  REPORT="${REPORT} ${REPORT}.gz"
+fi
