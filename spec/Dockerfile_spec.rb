@@ -14,7 +14,7 @@ describe "Dockerfile" do
     set :docker_container_create_options, { "Privileged" => true }
   end
 
-  describe file('/opt/puppetlabs/code/modules/catalog-diff/lib/puppet/face/catalog/diff.rb') do
+  describe file('/etc/puppetlabs/code/environments/production/modules/catalog-diff/lib/puppet/face/catalog/diff.rb') do
     it { is_expected.to be_file }
   end
 end
