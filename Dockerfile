@@ -6,7 +6,7 @@ ADD scripts/catalog_diff /usr/local/bin/catalog_diff
 
 RUN puppet module install zack/catalog_diff
 RUN apt-get update \
-  && apt-get install -y cron \
+  && apt-get install -y puppetdb-termini cron \
   && rm -rf /var/lib/apt/lists/*
 
 VOLUME /reports
