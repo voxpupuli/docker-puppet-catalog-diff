@@ -20,13 +20,13 @@ mkdir -p $DATADIR
 
 REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
 
-if [ -z $PUPPETDB ]; then
-  USE_PUPPETDB="--use_puppetdb"
+if [ "x$USE_PUPPETDB" = "xyes" ]; then
+  PUPPETDB_FLAG="--use_puppetdb"
   PUPPETDB_PORT=${PUPPETDB_PORT:8081}
   cat <<EOF > /etc/puppetlabs/puppet/puppetdb.conf
 [main]
 port = $PUPPETDB_PORT
-server = $PUPPETDB
+server = puppetdb
 soft_write_failure = false
 EOF
 fi
@@ -37,7 +37,7 @@ puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --changed_depth 1000 \
 --configtimeout 3000 \
 --output_report $REPORT \
---debug $USE_PUPPETDB \
+--debug $PUPPETDB_FLAG \
 --threads $THREADS
 
 if [ "x${COMPRESS}" = "xyes" ]; then

@@ -22,7 +22,9 @@ $ docker run -ti -e "MASTER1=puppet.dev" \
                  -e "MASTER2=puppet.prod" \ # optional, defaults to $MASTER1
                  -e "ENV1=dev" \
                  -e "ENV2=production" \     # optional, defaults to $ENV1
-                 -e "PUPPETDB=localhost" \
+                 -e "USE_PUPPETDB=yes" \
+                 -e "PUPPETDB_PORT=8080" \
+                 --link puppetdb \
                  camptocamp/puppet-catalog-diff catalog_diff
 ```
 
