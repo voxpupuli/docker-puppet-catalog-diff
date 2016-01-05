@@ -18,7 +18,8 @@ fi
 DATADIR="/reports"
 mkdir -p $DATADIR
 
-REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
+DEFAULT_REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
+REPORT=${REPORT:-$DEFAULT_REPORT}
 
 if [ "x$USE_PUPPETDB" = "xyes" ]; then
   PUPPETDB_FLAG="--use_puppetdb"
