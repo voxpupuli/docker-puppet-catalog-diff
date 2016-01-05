@@ -19,7 +19,7 @@ DATADIR="/reports"
 mkdir -p $DATADIR
 
 DEFAULT_REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
-REPORT=${REPORT:-$DEFAULT_REPORT}
+REPORT="${REPORT:-$DEFAULT_REPORT}"
 
 if [ "x$USE_PUPPETDB" = "xyes" ]; then
   PUPPETDB_FLAG="--use_puppetdb"
@@ -36,11 +36,10 @@ puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --content_diff \
 --changed_depth 1000 \
 --configtimeout 3000 \
---output_report $REPORT \
+--output_report "${REPORT}" \
 --debug $PUPPETDB_FLAG \
 --threads $THREADS
 
 if [ "x${COMPRESS}" = "xyes" ]; then
   gzip -c $REPORT > "${REPORT}.gz"
-  REPORT="${REPORT} ${REPORT}.gz"
 fi
