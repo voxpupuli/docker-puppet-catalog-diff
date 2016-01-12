@@ -11,4 +11,4 @@ RUN git clone https://github.com/acidprime/puppet-catalog-diff.git /etc/puppetla
 
 VOLUME /reports
 
-CMD ["cron", "-f"]
+ENTRYPOINT [ "/entrypoint.sh" ]
