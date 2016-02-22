@@ -13,7 +13,8 @@ VOLUME /reports
 
 COPY scripts/catalog_diff /usr/local/bin/
 COPY ./docker-entrypoint.sh /
-COPY /docker-entrypoint.d/* /docker-entrypoint.d/
+COPY ./docker-entrypoint.d/* /docker-entrypoint.d/
+COPY ./known_hosts /etc/ssh/ssh_known_hosts
 
 ENTRYPOINT [ "/docker-entrypoint.sh", "cron" ]
 CMD [ "-f" ]
