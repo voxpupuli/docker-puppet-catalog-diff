@@ -40,6 +40,7 @@ RUN git clone https://github.com/acidprime/puppet-catalog-diff.git /etc/puppetla
 VOLUME /data
 
 COPY scripts/catalog_diff /usr/local/bin/
+COPY scripts/generate_reportlist.py /
 COPY ./docker-entrypoint.sh /
 COPY ./docker-entrypoint.d/* /docker-entrypoint.d/
 COPY ./known_hosts /etc/ssh/ssh_known_hosts
