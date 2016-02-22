@@ -38,5 +38,5 @@ Be sure to set the container hostname to the same as the certificate.
 
 ## Reports
 
-When using the `catalog_diff` wrapper, generated JSON reports are stored in `/reports`. It is recommended to mount a volume there to retrieve the reports.
+When using the `catalog_diff` wrapper, generated JSON reports are stored in `/data`. It is recommended to mount a volume there to retrieve the reports.
 

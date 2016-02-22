@@ -15,7 +15,7 @@ if [ -z $MASTER1 ]; then
   exit 1
 fi
 
-DATADIR="/reports"
+DATADIR="/data"
 mkdir -p $DATADIR
 
 DEFAULT_REPORT="${DATADIR}/${MASTER1}_${ENV1}_${MASTER2}_${ENV2}.json"
