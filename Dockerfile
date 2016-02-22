@@ -4,6 +4,8 @@ MAINTAINER raphael.pinson@camptocamp.com
 
 RUN apt-get update \
   && apt-get install -y puppetdb-termini cron git \
+                        bundler s3cmd \
+                        libaugeas-dev libreadline-dev pkg-config \
   && rm -rf /var/lib/apt/lists/*
 RUN git clone https://github.com/acidprime/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
 
