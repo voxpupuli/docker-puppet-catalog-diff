@@ -9,5 +9,5 @@ for f in datafiles:
     if f.endswith('.json'):
         f = f[:-5]
         datadict.update({f:f})
-with open(path.join(maindir,'reportlist.json'), 'w') as reportlist:
+with open(path.join(datadir,'reportlist.json'), 'w') as reportlist:
     json.dump(datadict, reportlist, indent=4, sort_keys=True)
