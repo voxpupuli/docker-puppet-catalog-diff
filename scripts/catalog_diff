@@ -42,4 +42,9 @@ puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 
 if [ "x${COMPRESS}" = "xyes" ]; then
   gzip -c $REPORT > "${REPORT}.gz"
+  REPORT="${REPORT}.gz"
+fi
+
+if [ "x${SYNC}" = "xyes" ]; then
+  s3cmd put "${REPORT}" "s3://puppet-catalog-diff/${SITE}/"
 fi
