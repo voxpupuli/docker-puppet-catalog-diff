@@ -48,3 +48,5 @@ fi
 if [ "x${SYNC}" = "xyes" ]; then
   s3cmd put "${REPORT}" "s3://puppet-catalog-diff/${SITE}/"
 fi
+
+/generate_reportlist.py
