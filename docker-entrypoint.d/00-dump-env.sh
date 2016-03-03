@@ -1,3 +1,3 @@
 #!/bin/sh
 
-env > /etc/environment
+env > /etc/dumped-env
