@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source /etc/dumped-env
-
 THREADS=${THREADS:-1}
 COMPRESS=${COMPRESS:-no}
 MASTER2=${MASTER2:-$MASTER1}
