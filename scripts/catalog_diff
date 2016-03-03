@@ -2,18 +2,10 @@
 
 THREADS=${THREADS:-1}
 COMPRESS=${COMPRESS:-no}
+MASTER1=${MASTER1:-puppet}
 MASTER2=${MASTER2:-$MASTER1}
+ENV1=${ENV1:-production}
 ENV2=${ENV2:-$ENV1}
-
-if [ -z $ENV1 ]; then
-  echo "E: Must provide at least one environment"
-  exit 1
-fi
-
-if [ -z $MASTER1 ]; then
-  echo "E: Must provide at least one master"
-  exit 1
-fi
 
 DATADIR="/data"
 mkdir -p $DATADIR
