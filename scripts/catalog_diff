@@ -32,12 +32,12 @@ puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --debug $PUPPETDB_FLAG \
 --threads $THREADS $@
 
-if [ "x${COMPRESS}" = "xyes" ]; then
+if [ "x${COMPRESS}" = "xyes" -o "x${COMPRESS}" = "xtrue" ]; then
   gzip -c $REPORT > "${REPORT}.gz"
   REPORT="${REPORT}.gz"
 fi
 
-if [ "x${SYNC}" = "xyes" ]; then
+if [ "x${SYNC}" = "xyes" -o "x${SYNC}" = "xtrue" ]; then
   s3cmd put "${REPORT}" "s3://${S3_BUCKET}/${S3_DIR}/"
 fi
 
