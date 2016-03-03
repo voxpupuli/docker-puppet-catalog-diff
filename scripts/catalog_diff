@@ -30,7 +30,7 @@ puppet catalog diff $MASTER1/$ENV1 $MASTER2/$ENV2 \
 --configtimeout 3000 \
 --output_report "${REPORT}" \
 --debug $PUPPETDB_FLAG \
---threads $THREADS
+--threads $THREADS $@
 
 if [ "x${COMPRESS}" = "xyes" ]; then
   gzip -c $REPORT > "${REPORT}.gz"
@@ -38,7 +38,7 @@ if [ "x${COMPRESS}" = "xyes" ]; then
 fi
 
 if [ "x${SYNC}" = "xyes" ]; then
-  s3cmd put "${REPORT}" "s3://puppet-catalog-diff/${SITE}/"
+  s3cmd put "${REPORT}" "s3://${S3_BUCKET}/${S3_DIR}/"
 fi
 
 /generate_reportlist.py
