@@ -33,5 +33,5 @@ COPY ./docker-entrypoint.sh /
 COPY ./docker-entrypoint.d/* /docker-entrypoint.d/
 COPY ./known_hosts /etc/ssh/ssh_known_hosts
 
-ENTRYPOINT [ "/docker-entrypoint.sh", "/opt/jobber/docker-entrypoint.sh" ]
-CMD [ "jobberd" ]
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "/opt/jobber/docker-entrypoint.sh", "jobberd" ]
