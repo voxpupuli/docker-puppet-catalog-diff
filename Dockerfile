@@ -23,7 +23,7 @@ RUN gem install bundler
 RUN puppet config set certname catalog_diff --section main
 
 # Install catalog-diff module
-RUN git clone https://github.com/acidprime/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
+RUN git clone https://github.com/raphink/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
 
 VOLUME /data
 
