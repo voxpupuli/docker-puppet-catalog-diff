@@ -33,7 +33,7 @@ RUN apt-get update \
 RUN gem install bundler
 
 # Configure Puppet
-RUN puppet config set certname catalog_diff --section main
+#RUN puppet config set certname catalog_diff --section main
 
 # Install catalog-diff module
 RUN git clone https://github.com/raphink/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
