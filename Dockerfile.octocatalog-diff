@@ -1,0 +1,10 @@
+FROM puppet/puppet-agent
+
+RUN apt-get update \
+  && apt-get install -y --force-yes git puppetdb-termini \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+  && apt-get install -y ruby ruby-dev cmake pkg-config zlib1g-dev libssh2-1-dev libssl-dev \
+	&& /usr/bin/gem install octocatalog-diff \
+	&& apt-get clean
