@@ -6,5 +6,6 @@ RUN apt-get update \
 
 RUN apt-get update \
   && apt-get install -y ruby ruby-dev cmake pkg-config zlib1g-dev libssh2-1-dev libssl-dev \
-	&& /usr/bin/gem install octocatalog-diff \
+	&& /usr/bin/gem install --no-ri --no-rdoc specific_install \
+	&& /usr/bin/gem specific_install -l https://github.com/raphink/octocatalog-diff.git -b catalog_compile \
 	&& apt-get clean
