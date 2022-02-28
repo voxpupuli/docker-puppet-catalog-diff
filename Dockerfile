@@ -5,4 +5,4 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 # Install catalog-diff module
-RUN git clone https://github.com/raphink/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
+RUN git clone https://github.com/camptocamp/puppet-catalog-diff.git /etc/puppetlabs/code/environments/production/modules/catalog_diff
